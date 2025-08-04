@@ -1,1 +1,25 @@
 
+name: Demo - Manual Trigger via API
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Build Stage
+        run: echo "Build stage - triggered via API by ${{ github.actor }}"
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy Stage
+        run: echo " Deploy stage - triggered via API"
+
+  test:
+    runs-on: ubuntu-latest
+    needs: deploy
+    steps:
+      - name: Test Stage
+        run: echo " Test stage - triggered via API"
