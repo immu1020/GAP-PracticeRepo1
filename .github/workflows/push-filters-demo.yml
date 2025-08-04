@@ -2,21 +2,14 @@ name: Demo - Push Event with Filters
 on:
   push:
     branches:
-      - main    
-      - 'release-*'     
-    branches-ignore:
-      - 'docs-*'        
-
+      - main
+      - 'release-*'
     tags:
-      - 'v*'             
-    tags-ignore:
-      - 'beta-*'          
-
+      - 'v*'
     paths:
-      - 'src/**'         
-      - '!src/experimental/**' 
-    paths-ignore:
-      - 'README.md'
+      - 'src/**'
+      - '!src/experimental/**'
+
 
 jobs:
   build:
