@@ -1,0 +1,25 @@
+name: Demo - Issues Event with Build/Deploy/Test
+on:
+  issues:
+    types: [opened, edited, closed]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Build Stage
+        run: echo "Build stage for issues event by ${{ github.actor }}"
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy Stage
+        run: echo "Deploy stage for issues event"
+
+  test:
+    runs-on: ubuntu-latest
+    needs: deploy
+    steps:
+      - name: Test Stage
+        run: echo "Test stage for issues event"
