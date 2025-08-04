@@ -1,7 +1,7 @@
 name: Demo - Scheduled Workflow (Cron Job)
 on:
   schedule:
-    - cron: "34 4 * * *"
+    - cron: "37 16 * * *"
 
 jobs:
   build:
