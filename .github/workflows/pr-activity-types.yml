@@ -9,21 +9,21 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Detect PR Activity
-        run: echo "Pull request event: '${{ github.event.action }}' by '${{ github.actor }}'"
+        run: echo "Pull request event:'${{ github.event.action }}' by '${{ github.actor }}'"
 
       - name: Build Stage
-        run: echo "Build stage for PR event type: ${{ github.event.action }}"
+        run: echo "Build stage for PR event type:${{ github.event.action }}"
 
   deploy:
     runs-on: ubuntu-latest
     needs: build
     steps:
       - name: Deploy Stage
-        run: echo "Deploy stage for PR event type: ${{ github.event.action }}"
+        run: echo "Deploy stage for PR event type:${{ github.event.action }}"
 
   test:
     runs-on: ubuntu-latest
     needs: deploy
     steps:
       - name: Test Stage
-        run: echo "Test stage for PR event type: ${{ github.event.action }}"
+        run: echo "Test stage for PR event type:${{ github.event.action }}"
